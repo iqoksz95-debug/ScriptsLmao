@@ -342,3 +342,66 @@ _G.qocStartNoLagFunction = qocStartNoLagFunction
 _G.qocStopNoLagFunction = qocStopNoLagFunction
 
 return qocNoLagModule
+
+
+
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "NoLagGui"
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local mainWindow = Instance.new("Frame")
+mainWindow.Name = "MainWindow"
+mainWindow.Size = UDim2.new(0, 96, 0, 95)
+mainWindow.Position = UDim2.new(0.005, 0, 0.38, 0)
+mainWindow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+mainWindow.BackgroundTransparency = 0.5
+mainWindow.Active = true
+mainWindow.Draggable = true
+mainWindow.Parent = screenGui
+
+local uiCorner = Instance.new("UICorner")
+uiCorner.CornerRadius = UDim.new(0, 4)
+uiCorner.Parent = mainWindow
+
+---
+
+local stopButton = Instance.new("TextButton")
+stopButton.Size = UDim2.new(0, 84, 0, 40)
+stopButton.Position = UDim2.new(0.058, 0, 0.53, 0)
+stopButton.BackgroundColor3 = Color3.fromRGB(169, 111, 255)
+stopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+stopButton.Text = "Stop"
+stopButton.TextScaled = true
+stopButton.Font = Enum.Font.FredokaOne
+stopButton.TextSize = 14
+stopButton.Parent = mainWindow
+
+local closeCorner = Instance.new("UICorner")
+closeCorner.CornerRadius = UDim.new(0, 4)
+closeCorner.Parent = stopButton
+
+closeButton.MouseButton1Click:Connect(function()
+    qocStopNoLagFunction = false
+end)
+
+---
+
+local startButton = Instance.new("TextButton")
+startButton.Size = UDim2.new(0, 84, 0, 40)
+startButton.Position = UDim2.new(0.058, 0, 0.05, 0)
+startButton.BackgroundColor3 = Color3.fromRGB(169, 111, 255)
+startButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+startButton.Text = "Start"
+startButton.TextScaled = true
+startButton.Font = Enum.Font.FredokaOne
+startButton.TextSize = 14
+startButton.Parent = mainWindow
+
+local closeCorner = Instance.new("UICorner")
+closeCorner.CornerRadius = UDim.new(0, 4)
+closeCorner.Parent = startButton
+
+startButton.MouseButton1Click:Connect(function()
+    qocStartNoLagFunction = true
+end)
