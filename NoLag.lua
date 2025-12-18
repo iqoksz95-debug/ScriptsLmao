@@ -381,7 +381,7 @@ local closeCorner = Instance.new("UICorner")
 closeCorner.CornerRadius = UDim.new(0, 4)
 closeCorner.Parent = stopButton
 
-closeButton.MouseButton1Click:Connect(function()
+stopButton.MouseButton1Click:Connect(function()
     qocStopNoLagFunction = false
 end)
 
